@@ -1,0 +1,21 @@
+<ion-view view-title="Editar Cuenta" >
+
+	<ion-nav-bar class="navbar">
+		<ion-nav-buttons side="left">
+        	<button class="button button-icon button-clear " ui-sref="menu-contenido.principal"><i class="icon ion-arrow-left-c"></i>
+        	</button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content ng-init="listarUsuario()">
+      <form class="padding" ng-submit="editarCuenta()">
+        <label class="item item-input">
+          <i class="icon ion-email placeholder-icon"></i>
+          <input type="text" ng-model="correoeditar.val" required/>  
+        </label>
+      
+        <button type="submit" class="button button-full botones"> Cambiar </button>
+      </form>
+    <ion-conten>
+
+  </ion-view>

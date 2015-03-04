@@ -1,0 +1,40 @@
+<ion-view view-title="Registrar Usuario" >
+
+   <ion-nav-bar class="navbar">	        
+	  	<ion-nav-back-button class="button-clear">
+	      <i class="ion-arrow-left-c"></i>
+	    </ion-nav-back-button>	
+    </ion-nav-bar>
+
+   <ion-content  ng-controller="principalController">
+   		<div class="responsive-sm responsive-md responsive-lg">
+		  <form class="padding list" name="agregarUsuarioForm" ng-submit="registrarUsuario()">
+
+			  <label class="item item-input item-floating-label">
+			  	<span class="input-label">Nombre {{mensaje_de_error}}</span>
+			    <input type="text" placeholder="Nombre" ng-model="nombreregistrar" required>
+			  </label>
+			  <label class="item item-input item-floating-label">
+			  	<span class="input-label">Clave</span>
+			    <input type="password" placeholder="Clave" ng-model="claveregistrar">
+			  </label>
+			    <label class="item item-input item-floating-label">
+			  	<span class="input-label">Confirmar Clave</span>
+			    <input type="password" placeholder="Confirme su clave" ng-model="claveigualregistrar">
+			  </label>
+			    <label class="item item-input item-floating-label">
+			  	<span class="input-label">Correo Electrónico <p class="mensaje-error">{{mensajeErrorCorreo}}</p></span>
+			  	
+			    <input type="email" placeholder="Correo Electrónico" ng-model="correoregistrar" required>
+			  </label>
+
+			  <div class="row">
+				  <div class="col col-33 col-offset-33">
+					  <button class="button  button-block botones" ng-disabled='!agregarUsuarioForm.$valid' type="submit" > Registrar </button>
+					</div>
+				</div>
+			  
+			</form>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,109 @@
+<ion-view view-title="Editar Tratamiento" ng-init="llenarformedit()">
+
+	<ion-nav-bar class="navbar">
+		<ion-nav-buttons side="left">
+        	<button class="button button-icon button-clear " ui-sref="menu-contenido.principal"><i class="icon ion-arrow-left-c"></i>
+        	</button>
+
+        	
+      </ion-nav-buttons>		      	
+      	
+    </ion-nav-bar>
+
+    <ion-content>
+      <form class="padding" ng-submit="editarTratamiento()">
+        <label class="item item-input">
+          <input ng-model="nombreactrat.val" type="text" required/>
+        </label>
+        <label class="item item-input">
+          <input ng-model="nombreactmedi.val" type="text"/>
+        </label>
+        <label class="item item-input">
+          <input ng-model="fechactrata.val" type="date"  required/>
+        </label>
+        <label class="item item-input">
+          <input ng-model="diasactrata.val" type:"number" min="1" max="7" required/>
+        </label>
+        <ul class="list">
+          <li class="item item-toggle">
+            Lunes
+            <label class="toggle toggle-assertive">
+              <input type="checkbox" ng-model="lunesact" value="lunes"/>
+              <div class="track">
+                <div class="handle">
+                </div>
+              </div>
+              </label>
+          </li> 
+          <li class="item item-toggle">
+            Martes
+            <label class="toggle toggle-assertive">
+              <input type="checkbox" ng-model="martesact" value="martes"/>
+              <div class="track">
+                <div class="handle">
+                </div>
+              </div>
+              </label>
+          </li> 
+          <li class="item item-toggle">
+            Miercoles
+            <label class="toggle toggle-assertive">
+              <input type="checkbox" ng-model="miercolesact" value="miercoles"/>
+              <div class="track">
+                <div class="handle">
+                </div>
+              </div>
+              </label>
+          </li> 
+          <li class="item item-toggle">
+            Jueves
+            <label class="toggle toggle-assertive">
+              <input type="checkbox" ng-model="juevesact" value="jueves"/>
+              <div class="track">
+                <div class="handle">
+                </div>
+              </div>
+              </label>
+          </li> 
+          <li class="item item-toggle">
+            Viernes
+            <label class="toggle toggle-assertive">
+              <input type="checkbox" ng-model="viernesact" value="viernes"/>
+              <div class="track">
+                <div class="handle">
+                </div>
+              </div>
+              </label>
+          </li> 
+          <li class="item item-toggle">
+            Sabado
+            <label class="toggle toggle-assertive">
+              <input type="checkbox" ng-model="sabadoact" value="sabado"/>
+              <div class="track">
+                <div class="handle">
+                </div>
+              </div>
+              </label>
+          </li> 
+          <li class="item item-toggle">
+            Domingo
+            <label class="toggle toggle-assertive">
+              <input type="checkbox" ng-model="domingoact" value="domingo"/>
+              <div class="track">
+                <div class="handle">
+                </div>
+              </div>
+              </label>
+          </li> 
+        </ul>     
+        <label class="item item-input">   
+          <input ng-model="horasact.val" type="number" placeholder="Numero de horas" min="1" max="6" ng-change="llenar_arreglo_act()">
+        </label>  
+      <label class="item item-input" ng-repeat="elemento in horasactarray">    
+        <input ng-model="elemento.nombre" type="time" required>
+      </label>
+        <button type="submit" class="button botones"> Cambiar </button>
+      </form>
+    </ion-content>
+
+  </ion-view>

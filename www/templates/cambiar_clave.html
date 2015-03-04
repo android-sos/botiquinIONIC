@@ -1,0 +1,36 @@
+<ion-view view-title="Cambiar Clave" >
+
+	<ion-nav-bar class="navbar">
+		<ion-nav-buttons side="left">
+        	<button class="button button-icon button-clear " ui-sref="menu-contenido.principal"><i class="icon ion-arrow-left-c"></i>
+        	</button>
+      </ion-nav-buttons> 	
+    </ion-nav-bar>
+    
+  
+
+   <ion-content >
+		
+		<form class="padding" ng-controller="tratamientoController">
+			<label class="item item-input">
+		  		<i class="icon ion-locked placeholder-icon"></i>
+		    	<input ng-model="claveactualc" type="password" placeholder="Introduzca su clave actual" required/>
+		  </label>
+
+			
+			<label class="item item-input">
+				<i class="icon ion-locked placeholder-icon"></i>
+				<input ng-model="clavenueva" type="password" placeholder="Introduzca su nueva clave" required/>
+			</label>
+
+			<label class="item item-input">
+				<p class="assertive">{{ mensajeError}}</p>
+				<i class="icon ion-locked placeholder-icon"></i>
+				<input ng-model="clavenueva2" type="password" placeholder="Confirme su nueva clave" ng-change="verificarClave()" required/>
+			</label>
+			<button type="submit" class="button button-full botones"> Cambiar </button>
+		</form>
+
+	</ion-content>
+
+</ion-view>

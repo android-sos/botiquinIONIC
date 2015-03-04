@@ -1,0 +1,16 @@
+<ion-view view-title="Recordatorios" >
+
+  <ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content>
+    	<button class="button-full" ng-init="listar_recordatorios()">PRESIONA PARA CARGAR TRATAMIENTOS</button>
+    	<h1> Lista de tratamientos por tomar </h1>
+    	<div class="list" ng-repeat="rec in arreglo_recordatorio">
+
+		  <a class="item" href="#">
+		    {{rec.nombre}}
+		  </a>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,57 @@
+<ion-view view-title="Listar Tratamientos" >
+
+	<ion-nav-bar class="navbar">
+		<ion-nav-buttons side="left">
+			<button class="button button-icon button-clear " ui-sref="lista-tratamiento"><i class="icon ion-arrow-left-c"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+
+   <ion-content ng-init="llenarformedit()">
+   	<ul class="list">
+	    <li class="item">
+          {{nombreactrat.val}}
+        </li>
+        <li class="item">       
+          {{nombreactmedi.val}}
+        </li>
+        <li class="item">
+        	{{fechactrata.val}}
+        </li>
+        <li class="item">
+        	{{diasactrata.val}}
+        </li>
+        <li class="item" ng-if="lunesact">
+        	Lunes
+        </li>
+        <li class="item" ng-if="martesact">
+        	Martes
+        </li>
+        <li class="item" ng-if="miercolesact">
+        	Miercoles
+        </li>
+        <li class="item" ng-if="juevesact">
+        	Jueves
+        </li>
+        <li class="item" ng-if="viernesact">
+        	Viernes
+        </li>
+        <li class="item" ng-if="sabadoact">
+        	Sabado
+        </li>
+        <li class="item" ng-if="domingoact">
+        	Domingo
+        </li>
+        <li class="item">
+          {{horasact.val}}
+        </li>
+        <label class="item item-input" ng-repeat="elemento in horasactarray"> 
+        	<li class="item">
+				{{elemento.nombre}}
+			</li>
+		</label>
+	</ul>
+
+	</ion-content>
+
+</ion-view>

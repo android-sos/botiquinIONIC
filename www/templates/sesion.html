@@ -1,0 +1,30 @@
+<ion-view view-title="Iniciar sesión" >
+
+   <ion-nav-bar class="navbar">	        
+	  	<ion-nav-back-button class="button-clear">
+	      <i class="ion-arrow-left-c"></i>
+	    </ion-nav-back-button>	
+    </ion-nav-bar>
+
+   <ion-content >
+   		<div class="responsive-sm responsive-md responsive-lg">
+			<form class="padding list" name="iniciarSesionForm" ng-controller="principalController" ng-submit="iniciarSesion()">
+			  <label class="item item-input item-floating-label">
+			  	<span class="input-label">Correo Electrónico</span>
+			    <input type="email" placeholder="Correo Electrónico" ng-model="correoinicio" required>
+			  </label>
+			  <label class="item item-input item-floating-label">
+			  	<span class="input-label">Clave</span>
+			    <input type="password" placeholder="Clave" ng-model="claveinicio" required>
+			  </label>
+			  <div class="row">
+				  <div class="col col-33 col-offset-33">
+					  <button class="button button-block botones" ng-disabled='!iniciarSesionForm.$valid' type="submit" > Iniciar Sesión </button>
+					</div>
+				</div>
+				<center> <a id="recordar_contrasena" ui-sref="contrasena" class="padding-top"> ¿Has olvidado tu contraseña? </a> </center>
+			</form>
+		</div>
+	</ion-content>
+
+</ion-view>

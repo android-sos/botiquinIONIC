@@ -1,0 +1,19 @@
+<ion-view view-title="Listar Tratamientos" >
+
+	<ion-nav-bar class="navbar">
+		<ion-nav-buttons side="left">
+			<button class="button button-icon button-clear " ui-sref="menu-contenido.principal"><i class="icon ion-arrow-left-c"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+
+   <ion-content ng-init="listarTratamientos()">
+   		<div class="list" ng-repeat="trat in tratamientoslistar">
+
+		  <a class="item" href="#" on-tap="mostrarActionSheet(trat.id,$index)">
+		    {{trat.nombre}}
+		  </a>
+		</div>
+	</ion-content>
+
+</ion-view>

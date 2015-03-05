@@ -15,15 +15,15 @@ angular.module('starter', ['ionic','ngCordova','ngSanitize'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-
+    //$cordovaSQLite.deleteDB("my4.db");
     //alert("antes de abrir la BD");
     //db= $cordovaSQLite.openDB({ name: "my.db" });
-    //alert("despues de abrir la BD");
-    db= window.openDatabase("my5.db", "1.0", "my5.db", 10000);
+    
+    db= window.openDatabase("my1.db", "1.0", "my1.db", 10000);
     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS usuario (id integer primary key, clave text , token text, correo text, id_verdadero integer)");
     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS tratamiento (id_tratamiento integer primary key, nombre text , nombre_medico text, fechatrata text, usuario_id integer, lunes integer, martes integer, miercoles integer , jueves integer, viernes integer, sabado integer, domingo integer, dias integer, contador integer, contado_at integer, fecha_ultima_modificacion text, id_verdadero integer, borrado integer)");
     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS recordatorio (id_recordatorio integer primary key , hora text, tomado integer, tomado_at text, tratamiento_id integer, fecha_ultima_modificacion text, id_verdadero integer, borrado integer)");
-    alert("Despues de crear las tablas");
+    
   });
 })
 

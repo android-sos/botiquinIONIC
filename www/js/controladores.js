@@ -18,7 +18,7 @@ angular.module('starter')
 			alert($scope.correoregistrar);
 			$http({
 		      method: "post",
-		      url: "http://171.71.0.92:3000/usuarios/crear",
+		      url: "http://192.168.1.102:3000/usuarios/crear",
 		      data: Object.toparams({'nombre':$scope.nombreregistrar,'correo':$scope.correoregistrar, 'clave': $scope.claveregistrar, 'fechanac': 'nil'})
 		    }).success(function(res){
 		    	alert(res);
@@ -44,7 +44,7 @@ angular.module('starter')
 		   // alert("despues de abrir la BD");
 		    $http({
 		      method: "post",
-		      url: "http://171.71.0.92:3000/usuarios/autenticar",
+		      url: "http://192.168.1.102:3000/usuarios/autenticar",
 		      data: Object.toparams(myobject)
 		    }).success(function(res){
 		    	//alert("llame al api");
@@ -86,7 +86,7 @@ angular.module('starter')
 		        	$scope.id_usuario_local = res.insertId;
 		        	$http({
 				      method: "post",
-				      url: "http://171.71.0.92:3000/tratamientos/listar_recordatorio/",
+				      url: "http://192.168.1.102:3000/tratamientos/listar_recordatorio/",
 				      data: Object.toparams({"id_usuario":$rootScope.id_usuario_verdadero, "token": $rootScope.token})
 				    }).success(function(res2){
 				    	
@@ -133,7 +133,7 @@ angular.module('starter')
 		    myobject = {'correo':$scope.correocontrasena};
 		    $http({
 		      method: "post",
-		      url: "http://171.71.0.92:3000/usuarios/olvidar_contrasena",
+		      url: "http://192.168.1.102:3000/usuarios/olvidar_contrasena",
 		      data: Object.toparams(myobject)
 		    }).success(function(res){
 		      alert(res.mensaje);
@@ -180,7 +180,7 @@ angular.module('starter')
 			var fecha= $scope.fechacreart.toString().split(" ");
 			var mes= $scope.crearmes(fecha[1]);
 			var trata= fecha[3]+"-"+mes+"-"+fecha[2];
-			var st= "http://171.71.0.92:3000/tratamientos/crear?usuario_id="+$rootScope.id_usuario_verdadero+"&token="+$rootScope.token+"&nombre="+$scope.nombrecreart+"&nombre_medico="+$scope.nombremedicocreart+"&fecha_trata="+trata+"&lunes="+$scope.lunescreart+"&martes="+$scope.martescreart+"&miercoles="+$scope.miercolescreart+"&jueves="+$scope.juevescreart+"&viernes="+$scope.viernescreart+"&sabado="+$scope.sabadocreart+"&domingo="+$scope.domingocreart+"&dias="+$scope.diascreart+"&horas="+$scope.horascreart;
+			var st= "http://192.168.1.102:3000/tratamientos/crear?usuario_id="+$rootScope.id_usuario_verdadero+"&token="+$rootScope.token+"&nombre="+$scope.nombrecreart+"&nombre_medico="+$scope.nombremedicocreart+"&fecha_trata="+trata+"&lunes="+$scope.lunescreart+"&martes="+$scope.martescreart+"&miercoles="+$scope.miercolescreart+"&jueves="+$scope.juevescreart+"&viernes="+$scope.viernescreart+"&sabado="+$scope.sabadocreart+"&domingo="+$scope.domingocreart+"&dias="+$scope.diascreart+"&horas="+$scope.horascreart;
 			for (i=0;i<$scope.horascreart;i++){
 				st= st + "&hora"+(i+1)+"=";
 				st= st+$scope.horasinput[i].nombre;
@@ -229,7 +229,7 @@ angular.module('starter')
 			if ($scope.clavenueva == $scope.clavenueva2){
 				$http({
 			      method: "post",
-			      url: "http://171.71.0.92:3000/usuarios/cambiar_clave",
+			      url: "http://192.168.1.102:3000/usuarios/cambiar_clave",
 			      data: Object.toparams(myobject)
 			    }).success(function(res){
 			    	alert(res.mensaje);
@@ -263,7 +263,7 @@ angular.module('starter')
 			$cordovaSQLite.execute(db, "UPDATE usuario SET correo='"+$scope.correoeditar.val+"'").then(function (res){
 				$http({
 			      method: "post",
-			      url: "http://171.71.0.92:3000/usuarios/editar",
+			      url: "http://192.168.1.102:3000/usuarios/editar",
 			      data: Object.toparams(myobject)
 			    }).success(function(res){
 			    	alert(res.mensaje);
@@ -429,7 +429,7 @@ angular.module('starter')
 			        alert("error");
 			        console.error(err);
 			    });
-			   	var parametros = "http://171.71.0.92:3000/tratamientos/editar?id="+$rootScope.tratamiento_a_editar+"&usuario_id="+$rootScope.id_usuario_verdadero+"&token="+$rootScope.token+"&nombre="+$scope.nombreactrat.val+"&nombre_medico="+$scope.nombreactmedi.val+"&fechatrata="+$scope.fechactrata.val+"&lunes="+$scope.lunesact+"&martes="+$scope.martesact+"&miercoles="+$scope.miercolesact+"&jueves="+$scope.juevesact+"&viernes="+$scope.vienesact+"&sabado="+$scope.sabadoact+"&domingo="+$scope.domingoact+"&dias="+$scope.horasact.val+"&fecha_ultima_modificacion="+today+"&horas="+$scope.horasact.val;
+			   	var parametros = "http://192.168.1.102:3000/tratamientos/editar?id="+$rootScope.tratamiento_a_editar+"&usuario_id="+$rootScope.id_usuario_verdadero+"&token="+$rootScope.token+"&nombre="+$scope.nombreactrat.val+"&nombre_medico="+$scope.nombreactmedi.val+"&fechatrata="+$scope.fechactrata.val+"&lunes="+$scope.lunesact+"&martes="+$scope.martesact+"&miercoles="+$scope.miercolesact+"&jueves="+$scope.juevesact+"&viernes="+$scope.vienesact+"&sabado="+$scope.sabadoact+"&domingo="+$scope.domingoact+"&dias="+$scope.horasact.val+"&fecha_ultima_modificacion="+today+"&horas="+$scope.horasact.val;
 			   	for (i=0; i< $scope.horasact.val ; i++){
 					parametros += "&hora"+(i+1)+"="+$scope.horasactarray[i].nombre;
 					var query= "INSERT INTO recordatorio (id_recordatorio, hora, tomado, tomado_at, tratamiento_id, fecha_ultima_modificacion, id_verdadero) values (?, ?, ?, ?, ?, ?, ?)";
@@ -530,105 +530,31 @@ angular.module('starter')
         	//if ($cordovaNetwork.isOnline()) {
 			    $http({
 			      method: "get",
-			      url: "http://171.71.0.92:3000/tratamientos/listar_recordatorio?id_usuario="+$rootScope.id_usuario_verdadero+'&token='+$rootScope.token
+			      url: "http://192.168.1.102:3000/tratamientos/listar_recordatorio?id_usuario="+$rootScope.id_usuario_verdadero+'&token='+$rootScope.token
 			    }).success(function(res){
 			    	if ((res[0].nombre!="Vacio") && (res[0].nombre!="Rechazado")){
-			    		$cordovaSQLite.execute(db, "SELECT * FROM tratamiento where usuario_id="+$rootScope.id_usuario_verdadero).then(function (res2) {
+			    		$cordovaSQLite.execute(db, "SELECT * FROM tratamiento where usuario_id="+$rootScope.id_usuario_verdadero).then(function (res2){
 			    			for(i=0; i< res2.rows.length; i++){
 			    				alert("voy por el tratamiento "+res2.rows.item(i).nombre);
-								/*st="";
-									
-								if (res2.rows.item(i).id_verdadero == null){ // EL TRATAMIENTO ES NUEVO
-									st= "http://171.71.0.92:3000/tratamientos/crear?usuario_id="+$rootScope.id_usuario_verdadero+"&token="+$rootScope.token+"&nombre="+res2.rows.item(i).nombre+"&nombre_medico="+res2.rows.item(i).nombre_medico+"&fecha_trata="+res2.rows.item(i).fechatrata+"&lunes="+res2.rows.item(i).lunes+"&martes="+res2.rows.item(i).martes+"&miercoles="+res2.rows.item(i).miercoles+"&jueves="+res2.rows.item(i).jueves+"&viernes="+res2.rows.item(i).viernes+"&sabado="+res2.rows.item(i).sabado+"&domingo="+res2.rows.item(i).domingo+"&dias="+res2.rows.item(i).dias+"&horas=";*/
-									$rootScope.trats.push({"usuario_id":$rootScope.id_usuario_verdadero,"token":$rootScope.token,"nombre":res2.rows.item(i).nombre,"nombre_medico":res2.rows.item(i).nombre_medico,"fecha_trata":res2.rows.item(i).fechatrata,"lunes":res2.rows.item(i).lunes,"martes":res2.rows.item(i).martes,"miercoles":res2.rows.item(i).miercoles,"jueves":res2.rows.item(i).jueves,"viernes":res2.rows.item(i).viernes,"sabado":res2.rows.item(i).sabado,"domingo":res2.rows.item(i).domingo,"dias":res2.rows.item(i).dias});
-									$cordovaSQLite.execute(db, "SELECT * FROM recordatorio where tratamiento_id="+res2.rows.item(i).id_tratamiento).then(function (resr){
-										//st += resr.rows.length;
-								    	for (j=0; j< resr.rows.length; j++){ 
-								    		alert("voy por el recordatorio "+resr.rows.item(j).hora);
-								    		//st += "&hora"+(j+1)+"="+resr.rows.item(j).hora;
-								    	}
-								    //alert("voy a agregar al arreglo un tratamiento a crear");
-								    //$rootScope.urlCalls.push({"url": st, "metodo":"post"});
-									}, function (err) {
-								        alert("error");
-								        console.error(err);
-								    });
-								/*	
-								}else{
-									st="";
-									alert("Soy el tratamiento a actualizar o borrado");
-									var today= new Date();
-									var dd = today.getDate();
-									var mm = parseInt(today.getMonth())+1;
-									var yyyy = today.getFullYear();
-									if(dd<10) dd='0'+dd
-									if(mm<10) mm='0'+mm
-									today = (yyyy+'-'+mm+'-'+dd).toString();
-									posicion= $scope.busquedabin(res,res2.rows.item(i).id_verdadero);
-
-									$cordovaSQLite.execute(db, "SELECT * FROM recordatorio where tratamiento_id="+res2.rows.item(i).id_tratamiento).then(function (resr){
-										
-										if (res2.rows.item(i).borrado==1){ // EL TRATAMIENTO ESTA BORRADO
-											var parametros = "http://171.71.0.92:3000/eliminar?id="+res2.rows.item(i).id_verdadero+"&id_usuario="+$rootScope.id_usuario_verdadero+"&token="+$rootScope.token;
-										   $scope.urlCalls.push({"url": parametros,"metodo":"put"});
-										   
-										}else{ // HAY QUE VERIFICAR SI EL TRATAMIENTO CAMBIO 
-											if (posicion!=-1){
-												if (res[posicion].fecha_ultima_modificacion != res2.rows.item(i).fecha_ultima_modificacion){
-													st= "http://171.71.0.92:3000/tratamientos/editar?id="+res.rows.item(i).id_verdadero+"usuario_id="+$rootScope.id_usuario_verdadero+"&token="+$rootScope.token+"&nombre="+res2.rows.item(i).nombre+"&nombre_medico="+res2.rows.item(i).nombre_medico+"&fecha_trata="+res2.rows.item(i).fecha_ultima_modificacion+"&lunes="+res2.rows.item(i).lunes+"&martes="+res2.rows.item(i).martes+"&miercoles="+res2.rows.item(i).miercoles+"&jueves="+res2.rows.item(i).jueves+"&viernes="+res2.rows.item(i).viernes+"&sabado="+res2.rows.item(i).sabado+"&domingo="+res2.rows.item(i).domingo+"&dias="+res2.rows.item(i).dias+"&fecha_ultima_modificacion="+res2.rows.item(i).fecha_ultima_modificacion+"&borrado="+res2.rows.item(i).borrado+"&horas=";
-													st += resr.rows.length;
-											    	for (i=0; i< resr.rows.length; i++){
-											    	 st += "&hora"+(i+1)+"="+resr.rows.item(i).hora;
-											    	}
-													$rootScope.urlCalls.push({"url":st,"metodo":"put"});
-													//alert( urlCalls[urlCalls.length-1] );
-												} 
-											}
-										}
-
-										for(k=0;k<resr.length; k++){
-											if (resr.rows.item(k).tomado==1){
-												$scope.urlCalls.push({"url":"http://171.71.0.92:3000/tratamientos/tomar_tratamiento?id_usuario="+$rootScope.id_usuario_verdadero+"&token="+$rootScope.token+"&id_recordatorio="+resr.rows.item(k).id_recordatorio, "metodo": "put"});
-											}
-										}
-
-									}, function (err) {
-								        alert("error");
-								        console.error(err);
-								    });
-								    	if (res2.rows.item(i).borrado==1){ // EL TRATAMIENTO ESTA BORRADO
-											var parametros = "http://171.71.0.92:3000/eliminar?id="+res2.rows.item(i).id_verdadero+"&id_usuario="+$rootScope.id_usuario_verdadero+"&token="+$rootScope.token;
-										   $rootScope.urlCalls.push({"url": parametros,"metodo":"put"});
-										   
-										}else{ // HAY QUE VERIFICAR SI EL TRATAMIENTO CAMBIO 
-											if (posicion!=-1){
-												if (res[posicion].fecha_ultima_modificacion != res2.rows.item(i).fecha_ultima_modificacion){
-													st= "http://171.71.0.92:3000/tratamientos/editar?id="+res.rows.item(i).id_verdadero+"usuario_id="+$rootScope.id_usuario_verdadero+"&token="+$rootScope.token+"&nombre="+res2.rows.item(i).nombre+"&nombre_medico="+res2.rows.item(i).nombre_medico+"&fecha_trata="+res2.rows.item(i).fecha_ultima_modificacion+"&lunes="+res2.rows.item(i).lunes+"&martes="+res2.rows.item(i).martes+"&miercoles="+res2.rows.item(i).miercoles+"&jueves="+res2.rows.item(i).jueves+"&viernes="+res2.rows.item(i).viernes+"&sabado="+res2.rows.item(i).sabado+"&domingo="+res2.rows.item(i).domingo+"&dias="+res2.rows.item(i).dias+"&fecha_ultima_modificacion="+res2.rows.item(i).fecha_ultima_modificacion+"&borrado="+res2.rows.item(i).borrado+"&horas=";
-													st += resr.rows.length;
-											    	for (i=0; i< resr.rows.length; i++){ st += "&hora"+(i+1)+"="+resr.rows.item(i).hora;}
-													$rootScope.urlCalls.push({"url":st,"metodo":"put"});
-													//alert( urlCalls[urlCalls.length-1] );
-												} 
-											}	
-
-										}
-
-								}
+			    				$cordovaSQLite.execute(db, "SELECT * FROM recordatorio where tratamiento_id="+res2.rows.item(i).id_tratamiento).then(function (resr){
+			    					$rootScope.trats.push({"usuario_id":$rootScope.id_usuario_verdadero,"token":$rootScope.token,"nombre":res2.rows.item(i).nombre,"nombre_medico":res2.rows.item(i).nombre_medico,"fecha_trata":res2.rows.item(i).fechatrata,"lunes":res2.rows.item(i).lunes,"martes":res2.rows.item(i).martes,"miercoles":res2.rows.item(i).miercoles,"jueves":res2.rows.item(i).jueves,"viernes":res2.rows.item(i).viernes,"sabado":res2.rows.item(i).sabado,"domingo":res2.rows.item(i).domingo,"dias":res2.rows.item(i).dias});
+			    					for (j=0; j< resr.rows.length; j++){
+			    						alert("voy por el recordatorio "+resr.rows.item(j).hora);
+			    					}
+			    				}, function (err) {
+								    alert("error");
+								    console.error(err);
+								});
 			    			}
-			    			alert('Antes de llamar al api'); 
-							setTimeout((function() {
-							    $scope.llamarapi();
-							}),1500);*/
 			    		}, function (err) {
 					      console.error(err);
 					      alert("Existe un error");
 					    });
-
 			    	}else{
 						alert("No tiene tratamiento o permiso");
 					}	
 			    });
-        	//}
+			//}
         }
 
         $scope.llamarapi = function(){

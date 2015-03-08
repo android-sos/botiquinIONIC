@@ -31,7 +31,7 @@
           </a>
         </li>
         <li>
-          <a ui-sref="lista-tratamiento" class="item item-icon-left" menu-close>
+          <a ui-sref="lista-tratamiento" class="item item-icon-left" ng-click="listarTratamientos()" menu-close>
             <i class="icon ion-clipboard"></i>
             Lista de Tratamiento</a>
         </li>
@@ -47,7 +47,7 @@
       <ul class="list">
         
         <li>
-            <a ui-sref="editar-cuenta" class="item item-icon-left" menu-close >
+            <a ui-sref="editar-cuenta" class="item item-icon-left" ng-click="listarUsuario()" menu-close >
               <i class="icon ion-edit"></i>Editar Cuenta
             </a>
         </li>
@@ -57,7 +57,7 @@
             </a>
         </li>
         <li>
-            <a ui-sref="home" class="item item-icon-left" menu-close >
+            <a ng-click="cerrar_sesion()" class="item item-icon-left" menu-close >
               <i class="icon ion-power"></i>Cerrar Sesión
             </a>
         </li>

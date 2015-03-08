@@ -8,13 +8,13 @@
     </ion-nav-bar>
 
     <ion-content ng-init="listarUsuario()">
-      <form class="padding" ng-submit="editarCuenta()">
-        <label class="item item-input">
-          <i class="icon ion-email placeholder-icon"></i>
+      <form class="padding" name="editarCuentaForm" ng-submit="editarCuenta()">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Correo Electrónico <p class="mensaje-error">{{mensajeErrorCorreo}}</p></span>
           <input type="text" ng-model="correoeditar.val" required/>  
         </label>
       
-        <button type="submit" class="button button-full botones"> Cambiar </button>
+        <button type="submit" class="button button-full botones" ng-disabled='!editarCuentaForm.$valid'> Cambiar </button>
       </form>
     <ion-conten>
 

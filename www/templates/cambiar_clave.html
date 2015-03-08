@@ -6,29 +6,24 @@
         	</button>
       </ion-nav-buttons> 	
     </ion-nav-bar>
-    
-  
 
    <ion-content >
-		
-		<form class="padding" ng-controller="tratamientoController">
-			<label class="item item-input">
-		  		<i class="icon ion-locked placeholder-icon"></i>
-		    	<input ng-model="claveactualc" type="password" placeholder="Introduzca su clave actual" required/>
+		<form class="padding" name="editarClaveForm" ng-controller="tratamientoController" ng-submit="cambiarClave()">
+			<label class="item item-input item-floating-label">
+          		<span class="input-label">Clave actual <p class="mensaje-error">{{ErrorclaveActual}}</p> </span>
+		    	<input ng-model="claveactualc" type="password" placeholder="Clave actual" required/>
 		  </label>
 
-			
-			<label class="item item-input">
-				<i class="icon ion-locked placeholder-icon"></i>
-				<input ng-model="clavenueva" type="password" placeholder="Introduzca su nueva clave" required/>
+			<label class="item item-input item-floating-label">
+          		<span class="input-label">Clave  nueva </span>
+				<input ng-model="clavenueva" type="password" placeholder="Clave nueva" required/>
 			</label>
 
-			<label class="item item-input">
-				<p class="assertive">{{ mensajeError}}</p>
-				<i class="icon ion-locked placeholder-icon"></i>
-				<input ng-model="clavenueva2" type="password" placeholder="Confirme su nueva clave" ng-change="verificarClave()" required/>
+			<label class="item item-input item-floating-label">
+          		<span class="input-label">Repetir clave nueva <p class="mensaje-error">{{mensajeErrorClave}}</p></span>
+				<input ng-model="clavenueva2" type="password" placeholder="Repetir clave nueva" ng-change="verificarClave()" required/>
 			</label>
-			<button type="submit" class="button button-full botones"> Cambiar </button>
+			<button type="submit" class="button button-full botones" ng-disabled='!editarClaveForm.$valid'> Cambiar </button>
 		</form>
 
 	</ion-content>

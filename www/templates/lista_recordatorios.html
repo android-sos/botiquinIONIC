@@ -4,12 +4,12 @@
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
     <ion-content>
-    	<button class="button-full" ng-click="sincronizar()">PRESIONA PARA CARGAR TRATAMIENTOS</button>
+    	<button class="button-full" ng-click="listar_recordatorios()">PRESIONA PARA CARGAR TUS RECORDATORIOS</button>
     	<h1> Lista de tratamientos por tomar </h1>
     	<ul class="list" ng-repeat="rec in arreglo_recordatorio">
     		<li class="item item-checkbox">
-		    	<label class="checkbox"> <input type="checkbox" ng-model="rec.model" ng-change="verificarcheck(rec.id,$index)"> </label>
-		    	{{rec.nombre}} - {{rec.hora}}
+		    	<label class="checkbox"> <input type="checkbox" ng-model="rec.model" ng-change="verificarcheck(rec.id_recordatorio,$index)"> </label>
+		    	{{rec.nombre_tratamiento}} - {{rec.hora}}
 			</li>		    
 		  </a>
 		</ul >

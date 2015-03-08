@@ -8,21 +8,15 @@
 
    <ion-content >
    		<div class="responsive-sm responsive-md responsive-lg">
-			<form class="padding list" ng-controller="principalController" ng-submit="recordarContrasena()">
+			<form class="padding list" ng-controller="principalController"  name="recordarContrasenaForm" ng-submit="recordarContrasena()">
 				<div class="item item-input-inset">
 				    <label class="item-input-wrapper item-floating-label">
-				    	<span class="input-label">Correo Electrónico</span>
-				       	<input type="email" placeholder="Correo Electrónico" ng-model="correocontrasena" >
+				    	<span class="input-label">Correo Electrónico <p class="mensaje-error">{{mensajeErrorCorreo}}</p></span>
+				       	<input type="email" placeholder="Correo Electrónico" ng-model="correocontrasena" required >
 				    </label>
-				    <button class="button button-large botones"> Enviar </button>
+				    <button class="button button-small botones" type="submit" ng-disabled='!recordarContrasenaForm.$valid'> Enviar </button>
 				  </div>
 
-
-			  <!--<label class="item item-input">
-			  	<i class="icon ion-email placeholder-icon"></i>
-			    <input type="email" placeholder="Correo" ng-model="correocontrasena" required>
-			  </label>
-			  <button type="submit" class="button botones"> Reestablecer contraseña</button>-->
 			</form>
 		</div>
 	</ion-content>

@@ -19,7 +19,7 @@ angular.module('starter', ['ionic','ngCordova','ngSanitize'])
     //alert("antes de abrir la BD");
     //db= $cordovaSQLite.openDB({ name: "my.db" });
     
-    db= window.openDatabase("my1.db", "1.0", "my1.db", 10000);
+    db= window.openDatabase("mybotiquin1.db", "1.0", "mybotiquin1.db", 10000);
     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS usuario (id integer primary key, clave text , token text, correo text, id_verdadero integer)");
     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS tratamiento (id_tratamiento integer primary key, nombre text , nombre_medico text, fechatrata text, usuario_id integer, lunes integer, martes integer, miercoles integer , jueves integer, viernes integer, sabado integer, domingo integer, dias integer, contador integer, contado_at integer, fecha_ultima_modificacion text, id_verdadero integer, borrado integer)");
     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS recordatorio (id_recordatorio integer primary key , hora text, tomado integer, tomado_at text, tratamiento_id integer, fecha_ultima_modificacion text, id_verdadero integer, borrado integer)");
@@ -35,13 +35,7 @@ angular.module('starter', ['ionic','ngCordova','ngSanitize'])
       templateUrl : 'templates/home.html',
       controller: 'principalController'
     })
-
-    .state('popover', {
-      url: '/verpop',
-      templateUrl : 'templates/popover.html',
-      controller: 'principalController'
-    })
-   
+ 
 
     .state('sesion', {
       url: '/sesion',

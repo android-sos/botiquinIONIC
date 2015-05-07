@@ -1,0 +1,2 @@
+# botiquinIONIC
+Es una app hibrida con IONIC y angularJS cuyo objetivo es que un usuario pueda registrarse e inicar sesion para posteriormente crear tratamientos y recordatorios con una hora especifica, cabe destacar que la app hace llamadas a un api y que a su vez implementa una bd local en el dispositivo, por lo que cuando el dispositivo se encuentra conectado se hace una sincronizacion desde los datos que se tienen en la BD local a los que se tienen en la global. De tal manera que la global siempre este actualizada.
